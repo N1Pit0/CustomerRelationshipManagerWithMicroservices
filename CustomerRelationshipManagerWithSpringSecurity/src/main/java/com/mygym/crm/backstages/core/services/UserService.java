@@ -4,6 +4,7 @@ import com.mygym.crm.backstages.core.dtos.request.common.UserDto;
 import com.mygym.crm.backstages.interfaces.daorepositories.UserReadOnlyDao;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validator;
+import lombok.Getter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,8 @@ public class UserService {
     private UserReadOnlyDao userDao;
     private Validator validator;
     private PasswordEncoder passwordEncoder;
+    @Getter
+    private String password;
 
     @Autowired
     public void setUserDao(UserReadOnlyDao userDao) {
@@ -58,6 +61,7 @@ public class UserService {
     }
 
     public String generatePassword() {
+        this.password = null;
         StringBuilder password = new StringBuilder();
         Random random = new Random();
         for (int i = 0; i < 10; i++) {
@@ -65,6 +69,7 @@ public class UserService {
             password.append(c);
         }
 
+        this.password = password.toString();
         return encodePassword(password.toString());
     }
 

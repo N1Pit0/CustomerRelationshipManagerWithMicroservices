@@ -114,7 +114,7 @@ public class TrainerController {
 
         Trainer trainer1 = optionalTrainer.orElseThrow(() -> new ResourceCreationException("could not create Trainer"));
 
-        return new ResponseEntity<>(new TrainerCredentials(trainer1.getUserName(), trainer1.getPassword()),
+        return new ResponseEntity<>(new TrainerCredentials(trainer1.getUserName(), userService.getPassword()),
                 HttpStatus.CREATED);
     }
 

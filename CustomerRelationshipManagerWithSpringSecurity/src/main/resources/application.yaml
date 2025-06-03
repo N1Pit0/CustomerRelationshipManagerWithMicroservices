@@ -28,6 +28,22 @@ spring:
   profiles:
     active: local # Default active profile
 
+resilience4j:
+  circuitbreaker:
+    instances:
+      trainerHoursCircuitBreaker:
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 5000
+        minimum-number-of-calls: 6
+        sliding-window-type: COUNT_BASED
+        sliding-window-size: 10
+        permitted-number-of-calls-in-half-open-state: 3
+        automatic-transition-from-open-to-half-open-enabled: true
+  timelimiter:
+    instances:
+      trainerHoursCircuitBreaker:
+        timeout-duration: 2s
+
 #logging:
 #  level:
 #    org:

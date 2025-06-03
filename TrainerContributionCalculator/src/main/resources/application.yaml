@@ -25,3 +25,13 @@ eureka:
       defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
   instance:
     preferIpAddress: true
+
+logging:
+  file:
+    name: logs/trainer-contribution-calculator.log
+  level:
+    root: INFO
+    com.mygym.crm.trainercontributioncalculator: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"

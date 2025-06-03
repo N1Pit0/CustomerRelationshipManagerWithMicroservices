@@ -1,6 +1,7 @@
 package com.mygym.crm.backstages.core.services;
 
 import com.mygym.crm.backstages.core.dtos.request.trainingdto.TrainingDto;
+import com.mygym.crm.backstages.core.services.communication.TrainerHoursCalculator;
 import com.mygym.crm.backstages.core.services.mapper.TrainerMapper;
 import com.mygym.crm.backstages.domain.models.*;
 import com.mygym.crm.backstages.exceptions.custom.NoTrainerException;

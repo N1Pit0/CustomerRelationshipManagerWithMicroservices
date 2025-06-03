@@ -143,7 +143,7 @@ public class TraineeController {
 
         Trainee trainee = optionalTrainee.orElseThrow(() -> new ResourceCreationException("could not create Trainer"));
 
-        return new ResponseEntity<>(new TraineeCredentialsDto(trainee.getUserName(), trainee.getPassword()),
+        return new ResponseEntity<>(new TraineeCredentialsDto(trainee.getUserName(), userService.getPassword()),
                 HttpStatus.CREATED);
     }
 
